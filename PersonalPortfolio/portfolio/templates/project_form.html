@@ -1,0 +1,19 @@
+<!-- 
+Name: Akshitha Thumma
+UCID: at892
+Date of submission: 28-04-2023
+-->
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<center> 
+  <h2>Add a new project</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+</center>
+{% endblock %}

@@ -1,0 +1,25 @@
+<!-- 
+Name: Akshitha Thumma
+UCID: at892
+Date of submission: 28-04-2023
+-->
+
+
+{% extends "base.html" %} {% block content %}
+<center>
+  <h1>Portfolio</h1>
+  {% if projects %}
+  <ul>
+    {% for project in projects %}
+    <li>
+      <strong>{{ project.title }} - {{ project.year }}</strong>
+      <p>{{ project.description }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No projects found.</p>
+  {% endif %}
+  <p><a href="{% url 'add_project' %}">Add a new project</a></p>
+</center>
+{% endblock %}

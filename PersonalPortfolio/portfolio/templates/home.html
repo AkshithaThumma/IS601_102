@@ -1,0 +1,17 @@
+<!-- 
+Name: Akshitha Thumma
+UCID: at892
+Date of submission: 28-04-2023
+-->
+
+
+{% extends "base.html" %} {% block content %}
+<center> 
+  <h1>Welcome to my personal portfolio!</h1>
+  <h2>Akshitha Thumma</h2>
+  {% load static %}
+  <img src="{% static 'images.png' %}" alt="Photo">
+  <p>Email: at892@njit.edu</p>
+  <p>GitHub: <a href="{{ github }}">https://github.com/AkshithaThumma</a></p>
+</center>
+{% endblock %}

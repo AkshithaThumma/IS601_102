@@ -1,0 +1,43 @@
+<!-- 
+Name: Akshitha Thumma
+UCID: at892
+Date of submission: 28-04-2023
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}"/>
+    <link rel="stylesheet" href="{% static 'styles_home.css' %}">
+  </head>
+
+  <body>
+
+    <header>
+        <h1>My personal portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio/">Portfolio</a></li>
+                <li><a href="/about">About me</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    {% block content %}{% endblock %}
+  </body>
+
+  <footer>
+        <p>&copy; 2023 My portfolio. All rights reserved.</p>
+      {% load static %}
+      <script src="{% static 'main.js' %}"></script>
+  </footer>
+</html>
+
