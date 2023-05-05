@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- 
+Name: Akshitha Thumma
+UCID: at892
+Date of submission: 05-05-2023
+-->
+<html>
+  <head>
+    <title>{% block title %}Volunteer Management{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href="{% url 'home' %}">
+          <img src="{% static 'logo.png' %}" alt="Volunteer Management Logo" height="75">
+        </a>
+      </h1>
+      <nav>
+        <ul>
+          {% if user.is_authenticated %}
+            <ul class="navbar-nav ml-auto">
+              <li>Welcome, {{ user.get_full_name }}!</li>
+              <li/>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'event_list' %}">Events</a>
+              </li>
+              {% if is_organiser %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'create_event' %}">Create Event</a>
+                </li>
+              {% endif %}
+              <li class="nav-item">
+                <form method="POST" action="{% url 'logout' %}">
+                  {% csrf_token %}
+                  <button class="btn btn-link nav-link" type="submit">Logout</button>
+                </form>
+              </li>
+            </ul>
+          {% else %}
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+              </li>
+            </ul>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+    <footer>
+      <p>&copy; 2023 Volunteer Management</p>
+    </footer>
+  </body>
+</html>

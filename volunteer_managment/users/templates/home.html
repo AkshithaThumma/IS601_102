@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- 
+Name: Akshitha Thumma
+UCID: at892
+Date of submission: 05-05-2023
+-->
+  <div class="hero-image">
+    <div class="hero-text">
+      <h1>Welcome to Volunteer Events</h1>
+      <p>Join us and make a difference in your community</p>
+      <a href="{% url 'event_list' %}" class="btn">View Events</a>
+    </div>
+  </div>
+
+  <div class="features">
+    <h2>Why Volunteer Events?</h2>
+    <div class="feature">
+      <i class="fas fa-hand-holding-heart"></i>
+      <h3>Make a difference</h3>
+      <p>Volunteering is a great way to help those in need and make a positive impact in your community.</p>
+    </div>
+    <div class="feature">
+      <i class="fas fa-users"></i>
+      <h3>Connect with others</h3>
+      <p>Meet like-minded individuals and make new friends while working towards a common goal.</p>
+    </div>
+    <div class="feature">
+      <i class="fas fa-clock"></i>
+      <h3>Flexible scheduling</h3>
+      <p>We offer a variety of events with different schedules to fit your busy lifestyle.</p>
+    </div>
+  </div>
+{% endblock %}

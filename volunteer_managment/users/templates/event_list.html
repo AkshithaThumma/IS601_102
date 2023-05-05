@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Events List</h2>
+  <!-- 
+Name: Akshitha Thumma
+UCID: at892
+Date of submission: 05-05-2023
+-->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Signed Up</th>
+        {% if request.user.is_authenticated %}
+          <th>Action</th>
+        {% endif %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for event in events %}
+        <tr>
+          <td>{{ event.title }}</td>
+          <td>{{ event.description }}</td>
+          <td>{{ event.date }}</td>
+          <td>{{ event.location }}</td>
+          <td>{{ event.volunteers.count }}</td>
+          {% if request.user.is_authenticated %}
+            <td>
+              {% if request.user in event.volunteers.all %}
+                <form action="{% url 'event_unsignup' event.id %}" method="post">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-sm btn-danger">SignOut</button>
+                </form>
+              {% else %}
+                <form action="{% url 'event_signup' event.id %}" method="post">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-sm btn-success">SignUp</button>
+                </form>
+              {% endif %}
+            </td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
