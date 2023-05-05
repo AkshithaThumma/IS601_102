@@ -10,13 +10,7 @@ The Volunteer Management System is a web application built with Django that allo
 - User authentication: Users can log in to the system using their credentials.
 - Event creation: Organizers can create new volunteer events, providing event details such as title, description, date, and location.
 - Event registration: Users can view the list of available events and register or unregister themselves as volunteers for specific events.
-- Organizers' login: Organizers have a separate login to access the event creation functionality.
-
-## Prerequisites
-
-- Python 3.7 or higher
-- Django 3.0 or higher
-- Other project dependencies are listed in the `requirements.txt` file.
+- Admin User: Login to Django admin and Make a user as Organiser
 
 ## Installation
 
