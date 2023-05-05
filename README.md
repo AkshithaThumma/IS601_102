@@ -1,11 +1,53 @@
 # IS601_102
 
-## Voluneer-managment
+# Volunteer Management System
 
-### running in local
+The Volunteer Management System is a web application built with Django that allows users to manage volunteer events. The system supports user registration, event creation, and event registration.
+
+## Features
+
+- User registration: Users can create an account to access the system.
+- User authentication: Users can log in to the system using their credentials.
+- Event creation: Organizers can create new volunteer events, providing event details such as title, description, date, and location.
+- Event registration: Users can view the list of available events and register or unregister themselves as volunteers for specific events.
+- Organizers' login: Organizers have a separate login to access the event creation functionality.
+
+## Prerequisites
+
+- Python 3.7 or higher
+- Django 3.0 or higher
+- Other project dependencies are listed in the `requirements.txt` file.
+
+## Installation
+
+1. Clone the repository:
+
+```
+git clone https://github.com/your-username/volunteer-management.git
+```
+
+2. Navigate to the project directory:
+
+```
+cd volunteer-management
+
+```
+3. Run database migrations:
+```
+python manage.py migrate
+```
+4. Start the development server:
 ```
 python manage.py runserver
 ```
 
-## Adding new event
-Log in to the django admin ( http://127.0.0.1:8000/admin )  and add the new event under Events.
+5. Open your web browser and access the application at http://localhost:8000.
+
+## Usage
+
+- Create a user account by registering on the registration page.
+- Log in using your credentials.
+- View the list of available events on the home page.
+- Register or unregister yourself as a volunteer for specific events.
+- Admin User can make any user an organiser
+- Organizers can login and create new events.
